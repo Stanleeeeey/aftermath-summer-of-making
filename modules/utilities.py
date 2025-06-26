@@ -1,7 +1,7 @@
 import os 
 from datetime import datetime 
+from modules import LOG_URI
 
-LOG_URI = "log.txt"
 
 def clear_terminal():
     flush_input()
@@ -30,8 +30,6 @@ def count_lines(text, index):
 
     return sum([len(i) // columns + 1 for i in current_text])
     
-
-
 def log(text: str):
     with open(LOG_URI, "a") as f:
         f.write(f"[{datetime.now().time()}] {text}\n")
