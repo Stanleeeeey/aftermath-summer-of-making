@@ -31,7 +31,10 @@ class Dialogue:
         elif dialogue["playerinput"] == "textinput":
             self.player_input = PlayerInputs.TextInput
             self.var_name = dialogue["var"]
-        elif dialogue["playerinput"] == "choice": self.player_input = PlayerInputs.MultipleChoice
+        elif dialogue["playerinput"] == "choice":
+            self.player_input = PlayerInputs.MultipleChoice
+            self.options = dialogue["choices"]
+            self.next_dialogue = [[self.options[i], self.next_dialogue[i]] for i in range(len(self.options))]
         else: self.player_input = PlayerInputs.Continue
     
     def load_text(self, text):
@@ -53,24 +56,40 @@ class Display:
         self.time_between_letters = 1/WRITING_FPS
         self.index = 0
         self.finished_writing = False
+        self.header = ''
+        self.options = ""
 
-    def set_text(self, text):
+    def set_text(self, text, options = ""):
         self.text = text
         self.index = 0
         self.finished_writing = False
+        self.add_options(options)
+
+    def add_options(self, options):
+        self.options = ""
+        for i in range(len(options)):
+            self.options += f"{i+1}. {options[i]}\n"
+        log(f"{self.options}, {options}")
+
+    def set_header(self, left, right):
+        columns, _ = os.get_terminal_size()
+        self.header = left + " " +"-"*(columns - len(left) - len(right) - 2) +" "+ str(right)
+
     
-    def frame_generation(self, header, footer):
+    
+    def frame_generation(self, footer):
 
         if not self.finished_writing:
             self.current_time = time.time()
             clear_terminal()
             columns, lines = os.get_terminal_size()
 
+            top_lines = count_lines(self.header, len(self.header)) + count_lines(self.text, self.index)
+
+            
             #print top TUI
-            print(header)
-
+            if self.header: print(self.header)
             #dialogue text
-
             print(self.text[:self.index])
             if self.current_time -self.last_generated > self.time_between_letters:
 
@@ -78,8 +97,13 @@ class Display:
                 if self.index == len(self.text): self.finished_writing = True
                 self.last_generated = time.time()
 
+            
+
+            bottom_lines = count_lines(self.options, len(self.options)) + count_lines(footer, len(footer)) + 1
+
             #print remaining lines
-            print("\n"*(lines - (count_lines(self.text, self.index)) - 4))
+            print("\n"*(lines - (top_lines+bottom_lines)))
+            if self.options: print(self.options)
             print(footer)
 
 class Keyboard:
@@ -88,6 +112,7 @@ class Keyboard:
         self.already_used = False
 
     def is_enter_just_pressed(self):
+
         if self.is_pressed and not self.already_used:
             self.already_used = True
             return True
@@ -115,17 +140,13 @@ class Game:
         self.keyboard = Keyboard()
 
 
-    def header(self):
 
-        columns, lines = os.get_terminal_size()
-        loc_len = len(self.location)
-        time_len = len(str(self.time))
-
-        return self.location + " " +"-"*(columns - loc_len - time_len - 2) +" "+ str(self.time)
     
     def footer(self):
         if self.current_dialogue.player_input == PlayerInputs.Continue or (self.current_dialogue.player_input == PlayerInputs.TextInput and self.state == GameStates.Writing):
             return f"press enter to continue " 
+        if self.current_dialogue.player_input == PlayerInputs.MultipleChoice:
+            return f"choose" 
         return ""
     
     def load_text(self):
@@ -139,7 +160,11 @@ class Game:
         self.dialogue_id = id
         self.load_text()
         self.state = GameStates.Writing
-        self.display.set_text(self.current_dialogue.text)
+        if self.current_dialogue.player_input == PlayerInputs.MultipleChoice:
+            
+            self.display.set_text(self.current_dialogue.text, self.current_dialogue.options)
+        else:
+            self.display.set_text(self.current_dialogue.text)
 
     
 
@@ -156,20 +181,26 @@ class Game:
             
             
             if self.state == GameStates.AwaitingInput:
-                self.display.frame_generation(self.header(), self.footer())
+                self.display.frame_generation(self.footer())
                 while self.state == GameStates.AwaitingInput:
-                    if self.current_dialogue.player_input == PlayerInputs.Continue  and self.keyboard.is_enter_just_pressed():
+                    
+                    if self.current_dialogue.player_input == PlayerInputs.Continue and self.keyboard.is_enter_just_pressed():
                         self.import_dialogue(self.current_dialogue.next_dialogue)
-                        print(self.current_dialogue.text)
+                        
 
                     elif self.current_dialogue.player_input == PlayerInputs.TextInput:
                         GAME_VARS[self.current_dialogue.var_name] = get_input()
                         self.import_dialogue(self.current_dialogue.next_dialogue)
+                    elif self.current_dialogue.player_input == PlayerInputs.MultipleChoice:
+                        picked = int(get_input())
+                        self.import_dialogue(self.current_dialogue.next_dialogue[picked-1][1])
+
                     
-                self.keyboard.update()
+                    self.keyboard.update()
+
             if current_time - frame_start > time_between_frames:
                 frame_start = time.time()
-                self.display.frame_generation(self.header(), self.footer())
+                self.display.frame_generation(self.footer())
 
             if self.keyboard.is_enter_just_pressed():
                 self.display.index = len(self.current_dialogue.text)

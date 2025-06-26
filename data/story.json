@@ -9,7 +9,23 @@
     "2": {
             "text":"nice to meet you |playername|!",
             "playerinput":"enter",
-            "moveto":1
+            "moveto":3
+    },
+    "3": {
+        "text":"what's your favourite cupcake?",
+        "playerinput":"choice",
+        "choices":["chocolate", "raspberry"],
+        "moveto":[4, 5]
+    },
+    "4":{
+        "text":"chocolate is the best",
+        "playerinput":"enter",
+        "moveto":1
+    },
+    "5":{
+        "text":"raspberry is also good, but come on |playername| chocolate is simply superior",
+        "playerinput":"enter",
+        "moveto":1
     }
     
 }
