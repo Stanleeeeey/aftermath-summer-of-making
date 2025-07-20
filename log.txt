@@ -1,8 +1,2 @@
-[19:51:39.958133] cleared log
-[19:51:39.959133] starting game
-[19:51:39.959133] , 
-[19:52:04.373543] , 
-[19:52:09.517791] 1. chocolate
-2. raspberry
-, ['chocolate', 'raspberry']
-[19:52:15.966299] , 
+[14:43:13.452101] cleared log
+[14:43:13.453103] starting game

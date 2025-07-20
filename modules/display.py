@@ -1,6 +1,26 @@
 import time
 from modules.utilities import *
-from modules import WRITING_FPS
+from modules.dialogue import Dialogue
+from modules import WRITING_FPS, STORY_URI
+from flask import Flask, render_template, Response
+import webbrowser
+import json 
+
+app = Flask(__name__)
+
+@app.route("/")
+def game():
+    return render_template("index.html")
+
+def load_text(id):
+    with open(STORY_URI) as f:
+        d = json.load(f)
+        return d[str(id)] #Dialogue(d[str(id)])
+
+@app.route("/gameinfo/<id>", methods = ["POST"])
+def gameinfo(id:int):
+    print(load_text(id))
+    return load_text(id)
 
 class Display:
     def __init__(self):
@@ -11,6 +31,12 @@ class Display:
         self.header = ''
         self.options = ""
         self.footer = ''
+
+        
+        webbrowser.open("http://127.0.0.1:5000")
+        app.run()
+
+    
 
     def set_text(self, text, options = ""):
         self.text = text
