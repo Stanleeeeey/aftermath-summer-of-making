@@ -1,7 +1,7 @@
 {
     
     "1": {
-            "text":"Hi, here will be dragons and other rpg stuff, but for now it's nice and empty\nYou are about to enter main game loop, nice place, but first what's your character name?",
+            "text":"Hi, here will be dragons and other rpg stuff, but for now it's nice and empty. You are about to enter main game loop, nice place, but first what's your character name?",
             "playerinput":"textinput",
             "moveto":2,
             "var":"playername"

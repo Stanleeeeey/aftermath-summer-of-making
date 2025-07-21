@@ -19,6 +19,7 @@ def load_text(id):
 
 @app.route("/gameinfo/<id>", methods = ["POST"])
 def gameinfo(id:int):
+    print(id)
     print(load_text(id))
     return load_text(id)
 

@@ -34,9 +34,13 @@
 }
 
 .game{
-    padding: 1rem;
-    
-    width:calc(100vw - 2rem);
-    height: calc(100vh - 2rem);
+    padding: 2rem;
+    background-color: rgb(0, 20, 37);
+    width:calc(100vw - 4rem);
+    height: calc(90vh - 2rem);
+    padding-bottom: 10vh;
     z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }

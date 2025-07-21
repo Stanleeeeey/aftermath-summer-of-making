@@ -1,2 +1,2 @@
-[14:43:13.452101] cleared log
-[14:43:13.453103] starting game
+[11:45:16.973112] cleared log
+[11:45:16.973112] starting game
