@@ -36,6 +36,15 @@ async function request_dialog(dialog_id, args = ""){
     
 }
 
+function prepare_choices(choices){
+
+    let ans = ""
+    choices.forEach((element, index) => {
+        ans += (1+index) + ". "+element + "<br>"
+    });
+    return ans
+}
+
 async function write(dialog){
     gameState = "writing"
     let text = dialog.text
@@ -60,6 +69,8 @@ async function write(dialog){
     }
     else if (dialog.playerinput === "choice"){
         document.getElementById("options").innerHTML = "type your option"
+        choices = prepare_choices(dialog["choices"])
+        document.getElementById("choices").innerHTML = choices
         gameState = "awaitingtextinput"
     }
    
@@ -80,11 +91,19 @@ async function handle_scene(){
     if (gameState === "awaitinginput" ){
         dialog = await request_dialog(dialog.moveto)
     }
+    else if (gameState === "awaitingtextinput" && dialog.playerinput === "choice"){
+        console.log(dialog.moveto, Number(player_response) - 1, player_response)
+
+        dialog = await request_dialog(dialog.moveto[Number(player_response) - 1], player_response)
+        document.getElementById("choices").innerHTML = ""
+    }
     else if (gameState === "awaitingtextinput"){
+        console.log(dialog.moveto[dialog.playerinput])
         dialog = await request_dialog(dialog.moveto, player_response)
     }
     player_response = ""
     document.getElementById("player-response").innerHTML = ""
+    document.getElementById("options").innerHTML = "press enter to continue"
 
     
 

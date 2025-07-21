@@ -22,6 +22,9 @@ class Dialogue:
             self.options = dialogue["choices"]
             self.next_dialogue = [[self.options[i], self.next_dialogue[i]] for i in range(len(self.options))]
         else: self.player_input = PlayerInputs.Continue
+
+        dialogue["text"] = self.text
+        self.dialogue = dialogue
     
     def load_text(self, text):
         if "|" in text:
@@ -35,3 +38,7 @@ class Dialogue:
 
             self.text = ans
         else: self.text = text
+
+
+    def get_json(self):
+        return self.dialogue

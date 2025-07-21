@@ -1,11 +1,12 @@
 import time
 from modules.utilities import *
 from modules.dialogue import Dialogue
-from modules import WRITING_FPS, STORY_URI
-from flask import Flask, render_template, Response
+from modules import WRITING_FPS, STORY_URI, GAME_VARS
+from flask import Flask, render_template, request
 import webbrowser
 import json 
 
+dialogue = None
 app = Flask(__name__)
 
 @app.route("/")
@@ -13,14 +14,19 @@ def game():
     return render_template("index.html")
 
 def load_text(id):
+    global dialogue
     with open(STORY_URI) as f:
         d = json.load(f)
-        return d[str(id)] #Dialogue(d[str(id)])
+        dialogue = Dialogue(d[str(id)])
+        return dialogue.get_json()
 
 @app.route("/gameinfo/<id>", methods = ["POST"])
 def gameinfo(id:int):
-    print(id)
-    print(load_text(id))
+
+    try:
+        GAME_VARS[dialogue.var_name] = request.data.decode("utf-8")
+    except:
+        pass
     return load_text(id)
 
 class Display:
