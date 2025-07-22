@@ -77,16 +77,40 @@ async function write(dialog){
     
 }
 
+async function wrtie_title(dialog){
+    gameState = "writing"
+    let text = dialog.text
+    document.getElementById("title").innerHTML = ""
+    for (let i = 0; i < text.length; i++) {
+        document.getElementById("title").innerHTML = document.getElementById("title").innerHTML + text[i]
+        await new Promise(r => setTimeout(r, 30));
+
+        if (is_enter_pressed === true){
+            document.getElementById("title").innerHTML = text
+            break;
+        }
+    };
+    gameState = "awaitinginput"
+}
+
 function display_dialog(dialog, ){
     console.log(dialog)
     disable_loading()
+    console.log(dialog.type)
+    if (dialog.type === undefined || dialog.type === "text"){
+        write(dialog)
+    } else if(dialog.type === "title"){
+        wrtie_title(dialog)
+    }
     
-    write(dialog)
 
 }
 
 async function handle_scene(){
-    
+    document.getElementById("text").innerHTML = ""
+    document.getElementById("title").innerHTML = ""
+    document.getElementById("options").innerHTML = ""
+
     
     if (gameState === "awaitinginput" ){
         dialog = await request_dialog(dialog.moveto)

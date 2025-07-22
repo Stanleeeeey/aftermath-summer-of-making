@@ -1,31 +1,37 @@
 {
     
     "1": {
-            "text":"Hi, here will be dragons and other rpg stuff, but for now it's nice and empty. You are about to enter main game loop, nice place, but first what's your character name?",
-            "playerinput":"textinput",
+            "text":"Chapter 1",
+            "playerinput":"enter",
             "moveto":2,
-            "var":"playername"
+            "var":"playername",
+            "type":"title"
+            
     },
     "2": {
-            "text":"nice to meet you |playername|!",
+            "text":"nice to meet you !",
             "playerinput":"enter",
-            "moveto":3
+            "moveto":3,
+            "type": "text"
     },
     "3": {
         "text":"what's your favourite cupcake?",
         "playerinput":"choice",
         "choices":["chocolate", "raspberry"],
-        "moveto":[4, 5]
+        "moveto":[4, 5],
+        "type": "text"
     },
     "4":{
         "text":"chocolate is the best",
         "playerinput":"enter",
-        "moveto":1
+        "moveto":1,
+        "type": "text"
     },
     "5":{
-        "text":"raspberry is also good, but come on |playername| chocolate is simply superior",
+        "text":"raspberry is also good, but come on  chocolate is simply superior",
         "playerinput":"enter",
-        "moveto":1
+        "moveto":1,
+        "type": "text"
     }
     
 }
