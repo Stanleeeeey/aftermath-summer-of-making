@@ -1,28 +1,27 @@
 {
     
     "1": {
-            "text":"Chapter 1",
-            "playerinput":"enter",
+            "text":"Welcome to the game, what's your name?",
+            "playerinput":"textinput",
             "moveto":2,
-            "var":"playername",
-            "type":"title"
+            "var":"playername"
+ 
             
     },
     "2": {
-            "text":"nice to meet you !",
+            "text":"nice to meet you |playername|!",
             "playerinput":"enter",
             "moveto":3,
             "type": "text"
     },
     "3": {
-        "text":"what's your favourite cupcake?",
-        "playerinput":"choice",
-        "choices":["chocolate", "raspberry"],
-        "moveto":[4, 5],
-        "type": "text"
+        "text":"Chapter 1",
+        "playerinput":"enter",
+        "moveto":4,
+        "type": "title"
     },
     "4":{
-        "text":"chocolate is the best",
+        "text":"Clara : Wake up! We were supposed to go hunting ages ago. <br>|playername| : ZZZZ...<br> Clara: WAKE UP! <br>|playername| : One more minute<br>Clara : I'm gonna drag you into the woods if you won't WAKE UP<br>|playername| : alright alright <br><br> &nbsp;&nbsp;&nbsp;&nbsp; You slowly rise from your bed, gather your hunting equipment and leave your cottage. The village is almost empty, everyone already busy with their daily tasks" ,
         "playerinput":"enter",
         "moveto":1,
         "type": "text"

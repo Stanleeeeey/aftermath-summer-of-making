@@ -30,15 +30,20 @@ class Dialogue:
         if "|" in text:
             spl = text.split("|")
             ans = ""
-
-            for i in range(1, len(spl), 2):
+            i=1
+            while i <= len(spl):
 
                 ans+= spl[i-1]
-                ans += GAME_VARS[spl[i]]
+                try:
+                    ans += GAME_VARS[spl[i]]
+                except:
+                    pass
+                i+=2
 
             self.text = ans
+            print(self.text, spl)
         else: self.text = text
-
+       
 
     def get_json(self):
         return self.dialogue

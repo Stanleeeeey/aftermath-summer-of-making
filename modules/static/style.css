@@ -33,6 +33,13 @@
     visibility: hidden;
 }
 
+pre{
+    font-size: 120%;
+    text-overflow: clip;
+    max-width: calc(100vw - 2rem);
+    white-space: normal;;
+}
+
 .game{
     padding: 2rem;
     background-color: rgb(0, 20, 37);
