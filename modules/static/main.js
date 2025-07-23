@@ -50,7 +50,12 @@ async function write(dialog){
     let text = dialog.text
     document.getElementById("text").innerHTML = ""
     for (let i = 0; i < text.length; i++) {
+        if (text[i] === "<" && text.substring(i, i+4) === "<br>"){
+            document.getElementById("text").innerHTML = document.getElementById("text").innerHTML  + "<br>"
+            i+=3
+        }else{
         document.getElementById("text").innerHTML = document.getElementById("text").innerHTML + text[i]
+        }
         await new Promise(r => setTimeout(r, 30));
 
         if (is_enter_pressed === true){
@@ -80,10 +85,14 @@ async function write(dialog){
 async function wrtie_title(dialog){
     gameState = "writing"
     let text = dialog.text
+    let speed = 100
+    if (dialog.typing_speed !== undefined){
+        speed = dialog.typing_speed
+    }
     document.getElementById("title").innerHTML = ""
     for (let i = 0; i < text.length; i++) {
         document.getElementById("title").innerHTML = document.getElementById("title").innerHTML + text[i]
-        await new Promise(r => setTimeout(r, 30));
+        await new Promise(r => setTimeout(r, speed));
 
         if (is_enter_pressed === true){
             document.getElementById("title").innerHTML = text
@@ -146,6 +155,7 @@ window.addEventListener("load", async function(){
 window.addEventListener("keydown", async (event) =>{
 
     if(event.key === "Enter" && gameState !== "awaitingtextinput" && gameState !== "awaitinginput"){
+        
         is_enter_pressed = true;
         await new Promise(r => setTimeout(r, 40));
         is_enter_pressed = false;
@@ -159,7 +169,12 @@ window.addEventListener("keydown", async (event) =>{
         document.getElementById("player-response").innerHTML = player_response
 
     }
+    else if(event.key === "Enter" && dialog.redirect ){
+
+        window.location.replace("http://127.0.0.1:5000/" + dialog.moveto);
+    }
     else if(event.key === "Enter"){
+
         handle_scene()
     }
 

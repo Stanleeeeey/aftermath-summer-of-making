@@ -21,16 +21,72 @@
         "type": "title"
     },
     "4":{
-        "text":"Clara : Wake up! We were supposed to go hunting ages ago. <br>|playername| : ZZZZ...<br> Clara: WAKE UP! <br>|playername| : One more minute<br>Clara : I'm gonna drag you into the woods if you won't WAKE UP<br>|playername| : alright alright <br><br> &nbsp;&nbsp;&nbsp;&nbsp; You slowly rise from your bed, gather your hunting equipment and leave your cottage. The village is almost empty, everyone already busy with their daily tasks" ,
+        "text":"Clara : Wake up! We were supposed to go hunting ages ago. <br>|playername| : ZZZZ...<br> Clara: WAKE UP! <br>|playername| : One more minute<br>Clara : I'm gonna drag you into the woods if you won't WAKE UP!<br>|playername| : alright alright <br><br>You slowly rise from your bed, gather your hunting equipment and leave your house. " ,
         "playerinput":"enter",
-        "moveto":1,
+        "moveto":5,
         "type": "text"
     },
     "5":{
-        "text":"raspberry is also good, but come on  chocolate is simply superior",
+        "text":"All Houses are placed along one muddy road. Buildings were sum of metal sheets, plastic, all that could be scavanged from the remains of the old world.<br> Town was now mostly empty, everybody busy with their daily tasks on the framlands or in the workshops. Few people visible were children, too young to work, playing in the muddy streets. ",
         "playerinput":"enter",
-        "moveto":1,
+        "moveto":6,
         "type": "text"
+    },
+    "6":{
+        "text":"Clara : Do you want to talk about yesterday?<br>|playername| : About that fight? Not really.<br>Clara : A fight with your father, you know he just wants the best for you?<br>|playername| : Being a major. No, thanks, I prefer hunting.<br>Clara : Remember that I'm the one that helps you sneak out. Promise me you'll at least think about it.<br>|playername| : Easy for you to say, You are perfectly fine with being with role he raised you to be.<br>Clara : It wasn't always that easy, and besides I'm clearly his favourite child. Too bad for you.<br>|playername| : Thanks sis, can always count on you.<br>Clara : definietly.",
+        "playerinput":"enter",
+        "moveto":7,
+        "type": "text"
+    },
+    "7":{
+        "text":"You reach out the outer wall of the town, it's wood combined with metal sheets reaching 5 meters.<br><br>Clara : Yo, Dave let us out!<br><br> A tall slender man emerges from the watch post over the gate.<br><br>Dave : You're taking |playername| hunting again! No way I'm letting You both out, your father is gonna kill me.<br>Clara : Come on, he won't be here for like 6 hours, plus I heard that you need some skin for your new boots, I can give you some, but first I need to hunt it.<br>Dave : Skin and two deer steaks.<br>Clara : Don't get too greedy. Skin and one steak.<br>Dave : Deal, but it's last time I'm letting you two out.",
+        "playerinput":"enter",
+        "moveto":8,
+        "type": "text"
+    },
+    "8":{
+        "text":"Dave opens the gate and let's you out. As you walk out you can hear screeching sound of rusty gate closing behind you. You walk to the edge of woods.<br><br>Clara : That greedy bastard, if that goes on I won't be able to take you.<br><br>She takes out old radiation sensor and you walk into the woods",
+        "playerinput":"enter",
+        "moveto":9,
+        "type": "text"
+    },
+    "9":{
+        "text":"Forest is mostly young trees. From time to time You could see a burned tree, dark and tall column among sea of green.<br><br> |playername| : Imagine, how must they've looked before the war.<br>Clara : You're supposed to look for footprints, it's easier to find them on the ground.<br>|playername| : Yeah, sure.<br><br> You continue to wander into the forest.",
+        "playerinput":"enter",
+        "moveto":10,
+        "type": "text"
+    },
+    "10":{
+        "text":"|playername| :  Here, a deer foorprints.<br>Clara : It's quite fresh. Take out your bow<br><br>You start following the tracks",
+        "playerinput":"enter",
+        "moveto":11,
+        "type": "text"
+    },
+    "11":{
+        "text":"Clara (whispers): I don't like it the radiation is getting higher.<br>|playername| (whispers) : Radiation is still in safe range and we need to get that deer for Dave.<br>Clara (whispers) : Just be careful. ",
+        "playerinput":"enter",
+        "moveto":12,
+        "type": "text"
+    },
+    "12":{
+        "text":"|playername| (whispers) : Over there, on the other side of the stream<br><br>You draw your bow. Clara's device starts to beeps as she moves closer to the deer. That distracts you and you miss.<br><br>|playername| : shoot<br><br>Device keeps beeping<br><br> Clara : Come we need to go.<br>|playername| : Ehm, that deer<br>Clara : what about it?<br>|playername| : It just started to walk towards us. I don't think it's a deer at all",
+        "playerinput":"enter",
+        "moveto":13,
+        "type": "text"
+    },
+    "13":{
+        "text":"Clara : Run!<br>DEER : Good luck with that<br>|playername| : it talks!<br><br>You try to run away but you trip on one of the fallen trunks.",
+        "playerinput":"enter",
+        "moveto":14,
+        "type": "text"
+    },
+    "14":{
+        "text":"DEER",
+        "playerinput":"enter",
+        "moveto":"/deer",
+        "redirect":true,
+        "type": "title",
+        "typing_speed":500
     }
-    
+
 }

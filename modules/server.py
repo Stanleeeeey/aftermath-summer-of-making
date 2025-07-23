@@ -29,6 +29,11 @@ def gameinfo(id:int):
         pass
     return load_text(id)
 
+
+@app.route("/deer", methods = ["GET"])
+def deer():
+    return render_template("deer.html")
+
 class Server:
     def __init__(self):
         webbrowser.open("http://127.0.0.1:5000")
@@ -36,5 +41,5 @@ class Server:
 
     
     def run(self):
-        app.run()
+        app.run(port = 5000)
 
