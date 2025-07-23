@@ -1,12 +1,12 @@
 {
-    
+   
     "1": {
             "text":"Welcome to the game, what's your name?",
             "playerinput":"textinput",
             "moveto":2,
             "var":"playername"
  
-            
+           
     },
     "2": {
             "text":"nice to meet you |playername|!",
@@ -27,13 +27,13 @@
         "type": "text"
     },
     "5":{
-        "text":"All Houses are placed along one muddy road. Buildings were sum of metal sheets, plastic, all that could be scavanged from the remains of the old world.<br> Town was now mostly empty, everybody busy with their daily tasks on the framlands or in the workshops. Few people visible were children, too young to work, playing in the muddy streets. ",
+        "text":"All Houses are placed along one muddy road. Buildings were sum of metal sheets, plastic, all that could be scavenged from the remains of the old world.<br> Town was now mostly empty, everybody busy with their daily tasks on the farmlands or in the workshops. Few people visible were children, too young to work, playing in the muddy streets. ",
         "playerinput":"enter",
         "moveto":6,
         "type": "text"
     },
     "6":{
-        "text":"Clara : Do you want to talk about yesterday?<br>|playername| : About that fight? Not really.<br>Clara : A fight with your father, you know he just wants the best for you?<br>|playername| : Being a major. No, thanks, I prefer hunting.<br>Clara : Remember that I'm the one that helps you sneak out. Promise me you'll at least think about it.<br>|playername| : Easy for you to say, You are perfectly fine with being with role he raised you to be.<br>Clara : It wasn't always that easy, and besides I'm clearly his favourite child. Too bad for you.<br>|playername| : Thanks sis, can always count on you.<br>Clara : definietly.",
+        "text":"Clara : Do you want to talk about yesterday?<br>|playername| : About that fight? Not really.<br>Clara : A fight with your father, you know he just wants the best for you?<br>|playername| : Being a major. No, thanks, I prefer hunting.<br>Clara : Remember that I'm the one that helps you sneak out. Promise me you'll at least think about it.<br>|playername| : Easy for you to say, You are perfectly fine with being with role he raised you to be.<br>Clara : It wasn't always that easy, and besides I'm clearly his favourite child. Too bad for you.<br>|playername| : Thanks, can always count on you, sister.<br>Clara : definitely.",
         "playerinput":"enter",
         "moveto":7,
         "type": "text"
@@ -45,7 +45,7 @@
         "type": "text"
     },
     "8":{
-        "text":"Dave opens the gate and let's you out. As you walk out you can hear screeching sound of rusty gate closing behind you. You walk to the edge of woods.<br><br>Clara : That greedy bastard, if that goes on I won't be able to take you.<br><br>She takes out old radiation sensor and you walk into the woods",
+        "text":"Dave opens the gate and lets you out. As you walk out you can hear the screeching sound of a rusty gate closing behind you. You walk to the edge of woods.<br><br>Clara : That greedy bastard, if that goes on I won't be able to take you.<br><br>She takes out old radiation sensor and you walk into the woods",
         "playerinput":"enter",
         "moveto":9,
         "type": "text"
@@ -57,7 +57,7 @@
         "type": "text"
     },
     "10":{
-        "text":"|playername| :  Here, a deer foorprints.<br>Clara : It's quite fresh. Take out your bow<br><br>You start following the tracks",
+        "text":"|playername| :  Here, a deer footprints.<br>Clara : It's quite fresh. Take out your bow<br><br>You start following the tracks",
         "playerinput":"enter",
         "moveto":11,
         "type": "text"
@@ -69,7 +69,7 @@
         "type": "text"
     },
     "12":{
-        "text":"|playername| (whispers) : Over there, on the other side of the stream<br><br>You draw your bow. Clara's device starts to beeps as she moves closer to the deer. That distracts you and you miss.<br><br>|playername| : shoot<br><br>Device keeps beeping<br><br> Clara : Come we need to go.<br>|playername| : Ehm, that deer<br>Clara : what about it?<br>|playername| : It just started to walk towards us. I don't think it's a deer at all",
+        "text":"|playername| (whispers) : Over there, on the other side of the stream<br><br>You draw your bow. Clara's device starts to beep as she moves closer to the deer. That distracts you and you miss.<br><br>|playername| : shoot<br><br>Device keeps beeping<br><br> Clara : Come we need to go.<br>|playername| : Ehm, that deer<br>Clara : what about it?<br>|playername| : It just started to walk towards us. I don't think it's a deer at all",
         "playerinput":"enter",
         "moveto":13,
         "type": "text"
@@ -89,4 +89,6 @@
         "typing_speed":500
     }
 
+
 }
+

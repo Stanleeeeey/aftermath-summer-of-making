@@ -39,6 +39,7 @@ pre{
     text-overflow: clip;
     max-width: calc(100vw - 2rem);
     white-space: normal;;
+    line-height: 150%;
 }
 
 .game{

@@ -116,9 +116,7 @@ function display_dialog(dialog, ){
 }
 
 async function handle_scene(){
-    document.getElementById("text").innerHTML = ""
-    document.getElementById("title").innerHTML = ""
-    document.getElementById("options").innerHTML = ""
+    
 
     
     if (gameState === "awaitinginput" ){
@@ -131,10 +129,16 @@ async function handle_scene(){
         document.getElementById("choices").innerHTML = ""
     }
     else if (gameState === "awaitingtextinput"){
-        console.log(dialog.moveto[dialog.playerinput])
+        if (player_response === ""){
+            document.getElementById("options").innerHTML = "answer needed"
+            return;
+        }
         dialog = await request_dialog(dialog.moveto, player_response)
     }
     player_response = ""
+    document.getElementById("text").innerHTML = ""
+    document.getElementById("title").innerHTML = ""
+    document.getElementById("options").innerHTML = ""
     document.getElementById("player-response").innerHTML = ""
     document.getElementById("options").innerHTML = "press enter to continue"
 
