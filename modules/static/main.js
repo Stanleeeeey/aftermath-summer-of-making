@@ -151,7 +151,17 @@ async function handle_scene(){
 
 window.addEventListener("load", async function(){
     enable_loading()
-    let dialog = await request_dialog(1)
+
+    const params = new URLSearchParams(window.location.search);
+    console.log(params)
+    let dialog_id = 1
+    for (const [key, value] of params){
+       if (key === "move-to"){ dialog_id = Number(value)}
+    }
+    
+    let dialog = await request_dialog(dialog_id)
+    
+    
 
     display_dialog(dialog)
 })

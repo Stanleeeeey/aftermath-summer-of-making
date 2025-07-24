@@ -15,7 +15,7 @@
             "type": "text"
     },
     "3": {
-        "text":"Chapter 1",
+        "text":"Epilogue",
         "playerinput":"enter",
         "moveto":4,
         "type": "title"
@@ -75,18 +75,38 @@
         "type": "text"
     },
     "13":{
-        "text":"Clara : Run!<br>DEER : Good luck with that<br>|playername| : it talks!<br><br>You try to run away but you trip on one of the fallen trunks.",
+        "text":"Clara : Run!<br>DEER : Good luck with that<br>|playername| : it talks!<br><br> Deer starts a chase",
         "playerinput":"enter",
         "moveto":14,
         "type": "text"
     },
     "14":{
-        "text":"DEER",
+        "text":"'DEER'",
         "playerinput":"enter",
-        "moveto":"/deer",
+        "moveto":"/deer-chase",
         "redirect":true,
         "type": "title",
         "typing_speed":500
+    },
+    "15":{
+        "text":"Deer : You've called me a deer?!?!<br>|playername| : You looked like a deer.<br>Deer : You've called me, DEMON, a deer! I'm gonnna drag both of you through 9 circles of hell.<br>Clara : A demon? no one belives that. Is that a costume or a strange mutation?<br>Demon : You will belive me soon enough.<br><br> Demon takes out four blades, one for each of its hands.",
+        "playerinput":"enter",
+        "moveto":16,
+        "type": "text"
+    },
+    "16":{
+        "text":"DEMON",
+        "playerinput":"enter",
+        "moveto":"/demon",
+        "redirect":true,
+        "type": "title",
+        "typing_speed":500
+    },
+    "17":{
+        "text":"Demon : HOW DARE YOU!<br><br> To be continued",
+        "playerinput":"enter",
+        "moveto":17,
+        "type": "text"
     }
 
 

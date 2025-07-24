@@ -30,9 +30,14 @@ def gameinfo(id:int):
     return load_text(id)
 
 
-@app.route("/deer", methods = ["GET"])
+@app.route("/deer-chase", methods = ["GET"])
 def deer():
     return render_template("deer.html")
+
+
+@app.route("/demon", methods = ["GET"])
+def demon():
+    return render_template("demon.html")
 
 class Server:
     def __init__(self):
