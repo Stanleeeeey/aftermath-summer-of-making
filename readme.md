@@ -1,11 +1,15 @@
-# Here will be dragons!
+# Aftermath
 or something, don't know yet
 
 ## What is it?
 
-This is an old-school text based rpg running inside terminal. It takes story from `data/story.json` so feel free to create your own story!
+Aftermath is an old school rpg, inspired by classics such as Zork, yet having its own more modern, unique twist. 
 
-## How to do that?
+## How to play
+
+simply run `main.py`
+
+## How does the story work
 
 `story.json` consists of series of dialogues interlinked with each other.
 
