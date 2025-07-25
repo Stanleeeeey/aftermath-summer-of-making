@@ -11,6 +11,7 @@ let is_w_down = false
 let is_s_down = false
 let is_space_down = false
 
+let won = false
 
 let lost = false
 
@@ -23,10 +24,30 @@ let demon_life = 20
 let pentagrams = []
 let bullets = []
 
+window.addEventListener("load", () => {
+    const params = new URLSearchParams(window.location.search);
+    console.log(params)
+
+    for (const [key, value] of params){
+        console.log(key, value)
+       if (key === "died" && Boolean(value) === true){
+        
+        console.log("reattempt")
+        document.getElementById("info").innerHTML = "You've been hit, you're exhausted, yet part of you keeps you fighting!"}
+        else if(key === "won" && Boolean(value) === true){
+            document.getElementById("info").innerHTML = "You've defeated demon!"
+            won = true;
+        }
+    }
+})
+
 window.addEventListener("keydown",
     (event) => {
         
-        if (event.key === "Enter"){
+        if (event.key === "Enter" && won){
+            window.location= "/?move-to=17"
+        }
+        else if (event.key === "Enter"){
             document.getElementById("portrait-div").innerHTML = ""
             fight();
             
@@ -70,6 +91,11 @@ window.addEventListener("keyup", (event) => {
 
 })
 
+window.addEventListener("resize" , () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+})
+
 function check_death(){
 
     pentagrams.forEach((pentagram) => {
@@ -88,24 +114,32 @@ function check_death(){
 }
 
 function check_collisions(){
+    let finished = false
     bullets.forEach((bullet) => {
+        if (finished){return}
         let bullet_corners = [bullet, [bullet[0], bullet[1] + 5], [bullet[0] + 30, bullet[1]], [bullet[0] + 30, bullet[1] + 5]]
 
-        bullet_corners.forEach((corner) => {
-            
+        bullet_corners.forEach(async (corner) => {
+            if (finished){return}
             if (corner[0] >= deer_position[0] && corner[0] <= deer_position[0] + 40 && corner[1] >= deer_position[1] && corner[1] <= deer_position[1] + 40) {
                 
                 
                 bullets.splice(bullets.indexOf(bullet), 1)
+                
                     
                 demon_life -= 1
                 if (demon_life <= 0){
-                    window.location= "/?move-to=17"
+                    await new Promise(r => setTimeout(r, 1000));
+                    deer_speed = 0
+                    window.location= "/demon?won=true"
                 }
                 document.getElementById("life").innerHTML = demon_life
+                finished = true
+                return
             }
             
         })
+        
     })
 }
 
@@ -137,15 +171,15 @@ async function fight(){
 
             if(is_space_down && performance.now() - last_shot > time_between_shots){
                 last_shot = performance.now()
-                bullets.push(structuredClone(player_position))
+                bullets.push(structuredClone([player_position[0], player_position[1] + 7]))
                 
             }
 
             if(lost){
                 
+                await new Promise(r => setTimeout(r, 1000));
                 
-                alert("You've been hit, you're exhausted, yet part of you keeps you fighting!")
-                window.location = "/demon"
+                window.location = "/demon?died=true"
             }
             if (performance.now() - last_pentagram > time_between_attacks){
                 last_pentagram = performance.now()

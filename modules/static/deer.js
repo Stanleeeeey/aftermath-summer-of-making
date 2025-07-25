@@ -3,7 +3,7 @@
 let deer_speed = 5
 let deer_position = [0,0]
 
-let player_position = [300,200]
+let player_position = [window.innerWidth/2,window.innerHeight/2]
 let player_direction = [0,0]
 let player_speed = 6
 
@@ -26,6 +26,11 @@ window.addEventListener("keydown",
         }
     }
 )
+
+window.addEventListener("resize" , () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+})
 
 function guide_deer(){
     let x_dir = 0

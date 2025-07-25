@@ -89,7 +89,7 @@
         "typing_speed":500
     },
     "15":{
-        "text":"Deer : You've called me a deer?!?!<br>|playername| : You looked like a deer.<br>Deer : You've called me, DEMON, a deer! I'm gonnna drag both of you through 9 circles of hell.<br>Clara : A demon? no one belives that. Is that a costume or a strange mutation?<br>Demon : You will belive me soon enough.<br><br> Demon takes out four blades, one for each of its hands.",
+        "text":"Deer : You've called me a deer?!?!<br>|playername| : You looked like a deer.<br>Deer : You've called me, DEMON, a deer! I'm gonna drag both of you through 9 circles of hell.<br>Clara : A demon? no one believes that. Is that a costume or a strange mutation?<br>Demon : You will believe me soon enough.<br><br> Demon takes out four blades, one for each of its hands.",
         "playerinput":"enter",
         "moveto":16,
         "type": "text"
@@ -103,12 +103,102 @@
         "typing_speed":500
     },
     "17":{
-        "text":"Demon : HOW DARE YOU!<br><br> To be continued",
+        "text":"Demon : That was cute, but mostly pathetic. You seriously thought you could defeat me?<br>Demon : Wait, you seriously did think so? HAHAHAHA<br>Demon : Alright now, let's go back to the matter of dragging both of you through 9 circles of hell.<br><br> Clara takes her knife, and throws radiation sensor at demon.<br><br>Clara : RUN!",
+        "playerinput":"choice",
+        "choices": ["run", "fight"],
+        "moveto":[18, 19],
+        "type": "text"
+    },
+    "18":{
+        "text":"You start to run. You can hear sounds of the fight behind you. You fall, but you rise again, and again. You run until you forget about the world around you. You no longer remember why are you running, you only know that something terrifying is behind you.",
         "playerinput":"enter",
-        "moveto":17,
+        "moveto":21,
+        "type": "text"
+    },
+    "19":{        
+        "text":"Clara : I told you to run!<br><br>Clara dodges demon's attack. You join the fight, with your arrows. Demon seems to be indifferent to your attacks.<br><br>",
+        "playerinput":"choice",
+        "choices": ["run", "fight"],
+        "moveto":[18, 20],
+        "type": "text"
+    },
+    "20":{
+        "text":"Clara fails to dodge the attack, her unconscious body is thrown against the trunk of a nearby tree. You don't control yourself anymore, all you can feel is fear as the demon approaches. Next thing you remember is running through the forest, falling, getting up and running again.",
+        "playerinput":"enter",
+        "moveto":21,
+        "type": "text"
+    },
+    "21":{
+        "text":"You have no idea where you are, you can't breathe, you can't feel your legs. Your body simply cannot take it anymore, you collapse onto the forest floor",
+        "playerinput":"enter",
+        "moveto":22,
+        "type": "text"
+    },
+    "22":{
+        "text":"A few hours later<br><br>You wake up, it's raining. You drink falling drops of water. Slowly you remind yourself of what happened, it seems like a nightmare.<br><br>|playername|s thoughts : What should I do?<br>Fear (inner voice) : Go back to the village<br>Reason (inner voice) : I have no idea where it is.<br>Anger (inner voice) : Hunt the demon, save Clara.<br>Reason (inner voice) : I saw it didn't care for any damage from my arrows.",
+        "playerinput":"choice",
+        "choices": ["give in to fear", "give in to anger", "think further"],
+        "moveto":[23, 24, 25],
+        "type": "text"
+    },
+    "23":{
+        "text":"You tried to trace back your steps, but rain destroyed any tracks. You wander aimlessly.<br><br>Idea (inner voice) : I can use radiation sensor to o back to the place where we met demon<br>Fear (inner voice) : and get killed?<br>Reason (inner voice): I know how to get to the village from there, might be mine only shot.",
+        "playerinput":"choice",
+        "choices": ["give in to fear", "give in to reason"],
+        "moveto":[23, 26],
+        "type": "text"
+    },
+    "24":{
+        "text":"You tried to trace back your steps, but rain destroyed any tracks. You wander aimlessly.<br><br>Idea (inner voice) : I can use radiation sensor to o back to the place where we met demon<br>Anger (inner voice) : Do it.<br>Fear (inner voice): it's gonna get us killed",
+        "playerinput":"choice",
+        "choices": ["give in to anger", "give in to fear"],
+        "moveto":[26, 23],
+        "type": "text"
+    },
+    "25":{
+        "text":"Idea (inner voice) : I can use radiation sensor to o back to the place where we met demon<br>Anger (inner voice) : Do it.<br>Fear (inner voice): it's gonna get us killed, we should go back to the village",
+        "playerinput":"choice",
+        "choices": ["give in to anger", "give in to fear"],
+        "moveto":[26, 23],
+        "type": "text"
+    },
+    "26":{
+        "text":"You take out your radiation sensor, slowly you walk in the direction where it raises. Few times you got it wrong, but after few hours you find the stream where you met demon.<br><br>Anger (inner voice) : Keep going, follow radiation they are somehow connected<br>Fear (inner voice) : Go back to the village, before it's too late",
+        "playerinput":"choice",
+        "choices": ["give in to anger", "give in to fear"],
+        "moveto":["27", "28"],
+        "type": "text"
+    },
+    "27":{
+        "text":"You keep on following the radiation, you no longer care about radiation poisoning. You need to get Clara back, to kill that demon.",
+        "playerinput":"enter",
+        "moveto":29,
+        "type": "text"
+    },
+    "28":{
+        "text":"You go in the direction of the village. You already should see the end of the woods, but for some reason, you don't. You walked that route countless times, what's wrong? Finally you stumble upon a stream, the same place where you met the demon.<br><br> You try to go back again, and again, yet you always come back to the same spot. There seems to be only one option, you follow the radiation.",
+        "playerinput":"enter",
+        "moveto":29,
+        "type": "text"
+    },
+    "29":{
+        "text":"You reach a small glade. It's the greenest thing you've ever seen, that colors seem to be too vibrant to be real. There is a cliff on the side of the clearing. At the bottom of it there are doors. You move closer to them <br><br> Above the doors you can see an inscription - abandon all hope ye who enter here. Your radiation sensor shows you it's the way",
+        "playerinput":"enter",
+        "moveto":30,
+        "type": "text"
+    },
+    "30": {
+        "text":"First circle",
+        "playerinput":"enter",
+        "moveto":31,
+        "type": "title"
+    },
+    "31": {
+        "text":"Sorry, that's all for now. That story is certainly not over. Be sure to give feedback on the epilogue. <br> Hope you enjoyed it so far!",
+        "playerinput":"enter",
+        "moveto":31,
         "type": "text"
     }
-
 
 }
 

@@ -123,10 +123,13 @@ async function handle_scene(){
         dialog = await request_dialog(dialog.moveto)
     }
     else if (gameState === "awaitingtextinput" && dialog.playerinput === "choice"){
-        console.log(dialog.moveto, Number(player_response) - 1, player_response)
-
+        if (isNaN(Number(player_response))|| Number(player_response) <=0 || Number(player_response) > dialog.moveto.length){
+            document.getElementById("options").innerHTML = "invalid answer"
+            return;
+        }
         dialog = await request_dialog(dialog.moveto[Number(player_response) - 1], player_response)
         document.getElementById("choices").innerHTML = ""
+
     }
     else if (gameState === "awaitingtextinput"){
         if (player_response === ""){
