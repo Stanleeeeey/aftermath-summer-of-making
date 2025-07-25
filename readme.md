@@ -1,9 +1,8 @@
 # Aftermath
-or something, don't know yet
 
 ## What is it?
 
-Aftermath is an old school rpg, inspired by classics such as Zork, yet having its own more modern, unique twist. 
+Aftermath is an old school rpg, inspired by classics such as Zork, yet having its own more modern, unique twist. Play the epilogue now
 
 ## How to play
 
